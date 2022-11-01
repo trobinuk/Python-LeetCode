@@ -1,0 +1,14 @@
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        k = 0
+        j = 0
+        for idx in range(len(nums)):
+            if nums[j] == val:                
+                nums.append('_')
+                del nums[j] 
+                j -= 1
+            else:
+                k += 1
+            j +=1
+        return k
+       

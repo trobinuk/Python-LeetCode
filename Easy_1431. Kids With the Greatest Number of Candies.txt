@@ -1,0 +1,18 @@
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        high_enough = max(candies)-extraCandies
+        return [i >= high_enough for i in candies]
+        '''
+        max_candies = max(candies)
+        return [i+extraCandies >= max_candies for i in candies]
+        
+        j = 0
+        for i in candies:
+            #print(i,' ',i+extraCandies)
+            if i+extraCandies >= max_candies:
+                candies[j] = True
+            else:
+                candies[j] = False
+            j += 1
+        return candies'''
+            

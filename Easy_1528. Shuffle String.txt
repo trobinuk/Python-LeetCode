@@ -1,0 +1,13 @@
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        '''out_list = [None for i in range(len(s))]
+        for idx,i in enumerate(indices):
+            out_list[i] = s[idx]
+        s = ''
+        for i in out_list:
+            s += i
+        return s'''
+        pos = indices[0]
+        for idx,i in enumerate(indices):
+            if i > pos:
+                y += i

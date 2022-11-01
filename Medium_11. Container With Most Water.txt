@@ -1,0 +1,23 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        '''
+        max_area = 0
+        for idx,i in enumerate(height):
+            for inner_idx,j in enumerate(height[idx+1:]):
+                max_area = max(max_area,(inner_idx+1)*min(i,j))
+        return max_area
+        '''
+        max_area = 0
+        pointer1 = 0
+        pointer2 = len(height)-1
+        
+        for i in range(pointer2):
+            pointer1_val = height[pointer1]
+            pointer2_val = height[pointer2]
+            max_area = max(max_area,(min(pointer1_val,pointer2_val)*(pointer2-pointer1)))
+            if pointer2_val  > pointer1_val:
+                pointer1 += 1
+            else:
+                pointer2 += -1
+                
+        return(max_area)

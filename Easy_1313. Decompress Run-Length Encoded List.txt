@@ -1,0 +1,10 @@
+class Solution:
+    def decompressRLElist(self, nums: List[int]) -> List[int]:
+        no_of_loop = len(nums)//2
+        ol = []
+        for i in range(no_of_loop):
+            l = [nums[1]] * nums[0]
+            ol.extend(l)
+            if i != no_of_loop: 
+                nums = nums[2:]
+        return ol

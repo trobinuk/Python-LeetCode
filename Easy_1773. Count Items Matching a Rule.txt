@@ -1,0 +1,10 @@
+class Solution:
+    def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
+        j = 0
+        lookup_val = {'type':0,'color':1,'name':2}
+        lkup_idx = lookup_val[ruleKey]
+        for i in range(len(items)):
+            if items[i][lkup_idx] == ruleValue:
+                j += 1  
+                
+        return j

@@ -1,0 +1,28 @@
+class Solution:
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        if nums[0] >= target:
+            return 0
+        elif nums[-1] == target:
+            return len(nums)-1
+        elif nums[-1] < target:
+            return len(nums)
+        
+        no_of_ele_removed = 0
+        
+        while len(nums) >= 2:
+            #print(len(nums))
+            if len(nums)%2 == 0:
+                position = len(nums)//2 -1
+            else:
+                position = len(nums)//2
+            
+            if nums[position] == target:
+                return position+no_of_ele_removed
+            elif nums[position]-1 == target:
+                return position+no_of_ele_removed
+            elif nums[position] > target:
+                nums = nums[0:position] 
+            else:
+                nums = nums[position+1:]
+                no_of_ele_removed += position   
+                
