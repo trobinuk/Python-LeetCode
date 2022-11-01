@@ -1,0 +1,21 @@
+class Solution:
+    def numberOfPairs(self, nums: List[int]) -> List[int]:
+        cnt = Counter()
+        for i in nums:
+            cnt[i] += 1
+        resCnt = 0
+        resCnt1 = 0
+        for i in cnt.values():
+            resCnt += i//2
+            resCnt1 += i%2
+        return [resCnt,resCnt1]
+        '''setNums = set()
+        cnt = 0
+        for i in nums:
+            if i in setNums:
+                cnt += 1
+                setNums.remove(i)
+            else:
+                setNums.add(i)
+                
+        return [cnt,len(setNums)]'''

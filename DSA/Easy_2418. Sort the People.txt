@@ -1,0 +1,25 @@
+class Solution:
+    def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
+        res = []
+        for i in range(len(names)):
+            res.append([heights[i],names[i]])
+        res.sort(reverse=True)   
+        return [i[1] for i in res]
+        '''dict_heights = {}
+        for i in range(len(heights)):
+            dict_heights[heights[i]] = i
+        #print(dict_heights)
+        
+        result_list = []
+        heights.sort(reverse = True)
+        for i in heights:
+            result_list.append(names[dict_heights[i]])
+        return result_list'''
+        '''dict_names = {}
+        for i in range(len(names)):
+            dict_names[heights[i]] = names[i]
+        heights.sort(reverse=True)
+        result = []
+        for i in heights:
+            result.append(dict_names[i])
+        return result'''

@@ -1,0 +1,32 @@
+class Solution:
+    def repeatedCharacter(self, s: str) -> str:
+        cnt = Counter()
+        
+        for i in s:
+            cnt[i] += 1
+            if cnt[i] ==  2:
+                return i
+        '''
+        setS = set()
+        
+        for x in s:
+            if x in setS:
+                return x
+            else:
+                setS.add(x)'''
+        '''      
+        sList = [s[i] for i in range(len(s))]
+        cnt = Counter()
+        
+        for i in sList:
+            cnt[i] += 1
+            if cnt[i] ==  2:
+                return i'''  
+        '''setS = set()
+
+        for x in s:
+            if x in setS:
+                return x
+            else:
+                setS.add(x)'''
+        

@@ -1,0 +1,30 @@
+class Solution:
+    def countTime(self, time: str) -> int:
+        t = 1
+        if time[4] == '?': t *= 10
+        if time[3] == '?': t *= 6
+        if time[0] in ('0','1') and time[1] == '?': t *= 10
+        if time[0] == '2' and time[1] == '?': t*= 4
+        if time[0] == '?' and time[1] in ('4','5','6','7','8','9'): t*= 2
+        if time[0] == '?' and time[1] in ('0','1','2','3'): t*= 3            
+        if time[0:2] == '??': t *= 24
+        return t
+        '''
+        val1,val2,val3,val4 = 1,1,1,1
+        if time[4] == '?':
+            val4 = 10
+        if time[3] == '?':
+            val3 = 6
+        if time[0] in ('0','1') and time[1] == '?':
+            val2 = 10
+        if time[0] == '2' and time[1] == '?':
+            val2 = 4
+        if time[0] == '?' and time[1] in ('4','5','6','7','8','9'):
+            val1 = 2
+        if time[0] == '?' and time[1] in ('0','1','2','3'):
+            val1 = 3            
+        if time[0:2] == '??':
+            val1 = 6
+            val2 = 4
+        print(val1,' ',val2,' ',val3,' ',val4)
+        return val1*val2*val3*val4'''

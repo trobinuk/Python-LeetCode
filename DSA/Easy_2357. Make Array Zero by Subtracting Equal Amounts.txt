@@ -1,0 +1,16 @@
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        unique = list(set(nums)-{0})
+        return len(unique)
+        '''if sum(nums) == 0:
+            return 0
+        if len(nums) == 1:
+            return 1
+        nums = list(filter(lambda x:x!= 0,nums))
+        cnt = 0
+        while len(nums) > 0:
+            min_int = min(nums)
+            nums = list(filter(lambda x:x!= min_int,nums))
+            cnt += 1
+        return cnt'''
+        

@@ -1,0 +1,17 @@
+class Solution:
+    def bestHand(self, ranks: List[int], suits: List[str]) -> str:
+        if len(list(set(suits))) == 1:
+            return "Flush"
+        cnt = Counter()
+        flag = 'N'
+        for x in ranks:
+            cnt[x] += 1
+            if cnt[x] == 2 and flag == 'N':
+                flag = 'Y'
+            if cnt[x] == 3:
+                return "Three of a Kind"
+        #y = sorted(cnt.items(),key = lambda x: x[1],reverse=True)
+        if flag == 'Y':
+            return "Pair"
+        else:
+            return "High Card"

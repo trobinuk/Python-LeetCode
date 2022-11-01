@@ -1,0 +1,20 @@
+class Solution:
+    def checkDistances(self, s: str, distance: List[int]) -> bool:
+        print(Counter(s).values())
+        alphabets_list = [chr(i) for i in range(ord('a'),ord('z')+1)]
+        dict_distance = {}
+        for i in range(26):
+            dict_distance[alphabets_list[i]] = distance[i]
+        
+        list_s = [s[i] for i in range(len(s))]
+        for idx,i in enumerate(list_s):  
+            if idx != len(list_s) and i in alphabets_list:
+                cnt = 0
+                for j in list_s[idx+1:]:
+                    if i == j:
+                        if cnt != dict_distance[i]:
+                            return False
+                        list_s = list(map(lambda x:x.replace(i,str(0)),list_s))
+                        break
+                    cnt += 1
+        return True

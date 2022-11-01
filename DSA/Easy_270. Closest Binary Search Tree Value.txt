@@ -1,0 +1,33 @@
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+        
+    def inorder_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.inorder_traversal()
+            
+        elements.append(self.val)
+        
+        if self.right:
+            elements += self.right.inorder_traversal()
+            
+        return elements
+    
+class Solution:
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        pointer_largest = None
+        pointer_smallest = None
+        diff = 10^9
+        if target < root.val:
+            if root.left:
+                return self.closestValue(root.left,target)
+            else:
+                temp_diff = target-root.left.val
+                if temp_diff < diff:
+                    diff = temp_diff
+                    pointer_smallest = root.left.val
+        print(pointer_smallest)

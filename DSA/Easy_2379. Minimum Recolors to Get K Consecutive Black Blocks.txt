@@ -1,0 +1,22 @@
+class Solution:
+    def minimumRecolors(self, blocks: str, k: int) -> int:
+        minVal = k
+        
+        for i in range(len(blocks)-k+1):
+            currVal = blocks[i:k].count('W')
+            if currVal < minVal:
+                minVal = currVal
+            k += 1
+        return minVal
+        
+        '''k_len_list = []
+        loop_cnt = len(blocks)-k+1
+        
+        for i in range(loop_cnt):
+            k_len_list.append(blocks[i:k])
+            k += 1
+        #find min of the count of the whites
+        return min(list(map(lambda x: x.count('W'),k_len_list)))'''
+        
+        
+        

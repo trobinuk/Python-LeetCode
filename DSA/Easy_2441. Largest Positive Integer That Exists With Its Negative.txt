@@ -1,0 +1,25 @@
+class Solution:
+    def findMaxK(self, nums: List[int]) -> int:
+        nums.sort()
+        i,j = 0,len(nums)-1
+        while i < j and nums[i] < 0:
+            if nums[i] == -nums[j]:
+                return nums[j]
+            if abs(nums[i]) > abs(nums[j]):
+                i += 1
+            else:
+                j -= 1
+        return -1
+        '''valid_list = []
+        for idx,i in enumerate(nums):
+            if idx == len(nums)-1:
+                break
+            #for j in list(filter(lambda x : isinstance(x,int),nums[idx+1:])):
+            for j in nums[idx+1:]:
+                if i+j == 0:
+                    valid_list.extend((i,j))
+                    #nums = list(map(lambda x : x.replace(),nums))
+                    break
+        if not valid_list:
+            return -1
+        return max(valid_list)'''

@@ -1,0 +1,47 @@
+class Solution:
+    def countDaysTogether(self, arriveAlice: str, leaveAlice: str, arriveBob: str, leaveBob: str) -> int:
+        # max of arriveAlice and arriveBob
+       
+        startDay = arriveAlice[:2]+arriveAlice[3:] if int(arriveAlice[:2]+arriveAlice[3:]) > int(arriveBob[:2]+arriveBob[3:]) else arriveBob[:2]+arriveBob[3:]
+        startMonth = int(startDay[:2])
+        startDay = int(startDay[2:])
+        
+         # min of leaveAlice and leaveBob
+        endDay = leaveAlice[:2]+leaveAlice[3:] if int(leaveAlice[:2]+leaveAlice[3:]) < int(leaveBob[:2]+leaveBob[3:]) else leaveBob[:2]+leaveBob[3:]
+        endMonth = int(endDay[:2])
+        endDay = int(endDay[2:])
+        
+        cnt = 0
+        dict = {1:31, 2:28, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30,12:31}
+        
+        while int(str(startMonth)+str(startDay).rjust(2,'0')) <= int(str(endMonth)+str(endDay).rjust(2,'0')):
+            if dict[startMonth] == startDay:
+                startDay = 1
+                startMonth += 1
+            else:
+                startDay += 1
+            cnt += 1
+        return cnt 
+        '''dict = {"01":'31', '02':'28', '03':'31', '04':'30', '05':'31', '06':'30', '07':'31', '08':'31', '09':'30', '10':'31', '11':'30', '12':'31'}
+        AliceList = [arriveAlice]
+        while arriveAlice < leaveAlice:
+            if int(arriveAlice[3:5]) < int(dict[arriveAlice[:2]]):
+                arriveAlice = arriveAlice[:3]+str(int(arriveAlice[3:5])+1).rjust(2,'0')
+            else:
+                arriveAlice = str(int(arriveAlice[:2])+1).rjust(2,'0')+"-01"   
+            AliceList.append(arriveAlice)
+            
+        print(AliceList)
+        BobList = [arriveBob]
+        while arriveBob < leaveBob:            
+            if int(arriveBob[3:5]) < int(dict[arriveBob[:2]]):
+                arriveBob = arriveBob[:3]+str(int(arriveBob[3:5])+1).rjust(2,'0')
+            else:
+                arriveBob = str(int(arriveBob[:2])+1).rjust(2,'0')+"-01"
+            BobList.append(arriveBob)
+        print(BobList)
+        
+        resultList = [x for x in AliceList if x in BobList]
+        return len(resultList)'''
+        
+        

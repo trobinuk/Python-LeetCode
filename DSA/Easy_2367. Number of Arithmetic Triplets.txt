@@ -1,0 +1,36 @@
+class Solution:
+    def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
+        ans = 0
+        for i in range(len(nums)):
+            if nums[i]+diff in nums and nums[i]+2*diff in nums:
+                ans += 1
+        return ans
+        '''
+        final_result = 0
+        for idx,i in enumerate(nums):
+            temp_flag = 'N'
+            for inner_idx,j in enumerate(nums):
+                #print(j,' ',i)
+                if abs(j-i) == diff:
+                    if temp_flag == 'N':
+                        temp_flag = 'Y'
+                        #print(temp_list)
+                    else:
+                        temp_flag = 'N'
+                        final_result += 1
+                        break                
+        return final_result'''
+        '''final_result = 0
+        for idx,i in enumerate(nums):
+            temp_list = []
+            for inner_idx,j in enumerate(nums):
+                #print(j,' ',i)
+                if abs(j-i) == diff:
+                    if not temp_list:
+                        temp_list.extend([i,j])
+                        #print(temp_list)
+                    else:
+                        temp_list.append(j)
+                        final_result += 1
+                        break                
+        return final_result'''
